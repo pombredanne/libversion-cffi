@@ -1,10 +1,11 @@
 language: python
-sudo: false
+sudo: true
 python:
   - 3.4
   - 3.5
   - 3.6
 install:
   - pip install tox
+  - wget -qO- https://github.com/repology/libversion/archive/1.2.0.tar.gz | tar -xzf- && ( cd libversion-1.2.0 && cmake . && make && sudo make install )
 script:
   - tox
